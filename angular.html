@@ -1,0 +1,116 @@
+//angular
+<!DOCTYPE html>
+<html lang="en-US">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+<style>
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+</style>
+</style>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<div class="container">
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filter
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li class="dropdown-submenu" ng-repeat="obj in data1 ">
+        <a class="test" tabindex="-1" href="#">{{obj.NodeName}} <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-submenu" ng-repeat="obj1 in obj.children">
+            <a class="test" href="#">{{obj1.NodeName}} <span class="caret"></span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+
+  
+  $scope.data1=[{
+     id:1,
+	 NodeName:"TransactionTypeA",
+	 children:[{
+	    id:1,
+		NodeName:"TransactionType1"
+	 },
+	 {
+	    id:1,
+		NodeName:"TransactionType2"
+	 }]
+  },{
+     id:1,
+	 NodeName:"TransactionTypeB",
+	 children:[{
+	    id:1,
+		NodeName:"TransactionType3"
+	 },
+	 {
+	    id:1,
+		NodeName:"TransactionType4"
+	 }]
+  }]
+});
+</script>
+
+</body>
+</html>
